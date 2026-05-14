@@ -8,66 +8,72 @@ public:
     int data;
     Node *next;
 
-     Node()
+    Node()
     {
         next = NULL;
     }
 };
+
 // stack class
 class stack
 {
 private:
     Node *top;
-    public:
+
+public:
     stack()
     {
         top = NULL;
     }
 
-     int push(int value)
+    int push(int value)
     {
         Node *newNode = new Node();
         newNode->data = value;
-          newNode->next = top;
+        newNode->next = top;
         top = newNode;
-            cout << "Push value: " << value << endl;
+        cout << "push value: " << value << endl;
         return value;
     }
 
-      void pop()
- {
+    void pop()
+    {
         if (isEmpty())
         {
             cout << "Stack is empty." << endl;
         }
-
-        Node *temp = top;
-        top = top->next;
-        cout << "Popped value: " << top->data << endl;
-        delete temp;
+        else
+        {
+            Node *temp = top;
+            top = top->next;
+            cout << "popped value: " << top->data << endl;
+        }
     }
-     void peek()
-      {
+
+    void peek()
+    {
         if (top == NULL)
         {
-            cout << "List is empty." << endl;
+            cout << "list is empty." << endl;
         }
-          else
+        else
         {
             Node *current = top;
             while (current != NULL)
-              {
+            {
                 cout << current->data << " " << endl;
                 current = current->next;
             }
-              cout << endl;
+            cout << endl;
         }
     }
-       bool isEmpty()
+
+    bool isEmpty()
     {
         return top == NULL;
     }
 };
+
 int main()
 {
     stack stack;
@@ -75,16 +81,16 @@ int main()
     int choice = 0;
     int value;
 
-   while (choice != 5)
+    while (choice != 5)
     {
-        cout << "1.push\n";
-        cout << "2.pop\n";
-        cout << "3.peek\n";
-        cout << "4.Exit\n";
+        cout << "1. push\n";
+        cout << "2. pop\n";
+        cout << "3. peek\n";
+        cout << "4. Exit\n";
         cout << "Enter your choice: ";
-        cin >> choice
+        cin >> choice;
 
-          switch (choice)
+        switch (choice)
         {
         case 1:
             cout << "Enter the value to push: ";
@@ -98,8 +104,8 @@ int main()
             }
             else
             {
-                cout << "Stack is empty. Cannot pop." << endl;
-                   }
+                cout << "stack is empty, cannot pop." << endl;
+            }
             break;
         case 3:
             if (!stack.isEmpty())
@@ -108,11 +114,11 @@ int main()
             }
             else
             {
-                cout << "Stack is empty.No top value." << endl;
-                   }
+                cout << "Stack is empty, no top values." << endl;
+            }
             break;
-         case 4:
-            cout << "Exiting program." << endl;
+        case 4:
+            cout << "Exiting program..." << endl;
             break;
         default:
             cout << "Invalid choice. Try again." << endl;
