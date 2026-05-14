@@ -23,3 +23,8 @@ private:
     {
         top = NULL;
     }
+
+     int push(int value)
+    {
+        Node *newNode = new Node();
+        newNode->data = value;
